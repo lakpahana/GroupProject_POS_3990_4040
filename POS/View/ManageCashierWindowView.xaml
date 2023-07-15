@@ -1,0 +1,174 @@
+﻿<UserControl x:Class="Hotel_POS.View.ManageCashierWindowView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hotel_POS.View" 
+             xmlns:viewModel="clr-namespace:Hotel_POS.ViewModel" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewModel:ManageCashiersWindowVM />
+    </UserControl.DataContext>
+    <Grid>
+        <!--<Border CornerRadius="0">
+            <Border.Background>
+                <ImageBrush Stretch="UniformToFill" Opacity="0.20"
+                                        ImageSource="C:\Users\Pramitha Jayasooriya\Desktop\HOTELPOS\Hotel_POS-43.1\img\food.png"/>
+            </Border.Background>-->
+
+        <Grid>
+
+
+            <Grid.RowDefinitions>
+                <!--Control bar-->
+                <RowDefinition Height="35"/>
+                <!--Header / Caption-->
+                <RowDefinition Height="45"/>
+                <!--Content section / Child views-->
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Control bar-->
+            <Grid Grid.Row="0">
+                <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0,0,5,0"
+                                MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
+                                MouseEnter="pnlControlBar_MouseEnter">
+
+                    <Button x:Name="btnClose"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}"
+                                Click="btnClose_Click">
+                        <fa:IconImage Icon="Xmark" Width="15" Height="15"
+                                 Style="{StaticResource controlButtonIcon}"/>
+
+                    </Button>
+
+                    <Button x:Name="btnMaximize"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color8}"
+                                Click="btnMaximize_Click">
+                        <fa:IconImage Icon="WindowMaximize" Width="15" Height="15"
+                                          Style="{StaticResource controlButtonIcon}"/>
+
+                    </Button>
+
+                    <Button x:Name="btnMinimize"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color6}"
+                                Click="btnMinimize_Click">
+                        <fa:IconImage Icon="WindowMinimize" Width="15" Height="15"
+                                          Style="{StaticResource controlButtonIcon}"/>
+
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <!--Header / Caption-->
+            <Grid  Grid.Row="1" Margin="20 0 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                    CornerRadius="10" 
+                    Style="{StaticResource Borders}">
+                    <Grid >
+                        <TextBlock Text="Manage Cashiers" 
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="25"
+                           Foreground="White"
+                           Margin="5"
+                           FontFamily="Source Serif Pro Black" 
+                           FontStretch="Medium"
+                       />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!--Content section / Child views-->
+            <Border Style="{StaticResource Borders}"
+                    CornerRadius="10"
+                     Grid.Row="2" Margin="20 5 5 5">
+
+                <Grid  Background="Transparent">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="59*"/>
+                        <ColumnDefinition Width="341*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Background="Transparent" Grid.ColumnSpan="2" >
+                        <Border Style="{StaticResource Borders}"
+                    CornerRadius="10" Margin="10 10 10 0">
+                            <ListView ItemsSource="{Binding Users}"
+                          BorderBrush="#FF928484"
+                          SelectedItem="{Binding SelectedUser ,UpdateSourceTrigger=PropertyChanged}" 
+                              HorizontalAlignment="Center" 
+                              FontFamily="Noto Mono" 
+                              Foreground="Black" 
+                              Margin="5,25,5,5" 
+                              IsSynchronizedWithCurrentItem="False" 
+                              Cursor="Hand" VerticalAlignment="Center" BorderThickness="3,2,3,3" Background="White" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Center" ScrollViewer.CanContentScroll="False" UseLayoutRounding="True">
+                                <ListView.View>
+                                    <GridView >
+                                        <GridView.Columns>
+                                            <GridViewColumn Header=" Image ">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Image Source="{Binding Path=profilePicture}"
+                                                   Width="55" Height="51"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Header=" Cashier Name " 
+                                                DisplayMemberBinding="{Binding Name}"/>
+                                          
+                                            <GridViewColumn Header=" Password " 
+                                                DisplayMemberBinding="{Binding Password}"/>
+                                            <GridViewColumn Header=" Cashier Id " 
+                                                DisplayMemberBinding="{Binding CashierId}"/>
+                                            <GridViewColumn Header=" Phone Number " 
+                                                DisplayMemberBinding="{Binding PhoneNumber}"/>
+                                        </GridView.Columns>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+
+                        </Border>
+
+
+                        <Border Style="{StaticResource Borders}"
+                    CornerRadius="10" Margin=" 170 20 170 0">
+                            <StackPanel Orientation="Horizontal" Margin="10"
+                            HorizontalAlignment="Center">
+                                <Button Command="{Binding Path=AddNewRecordCommand}" ToolTip="Add User"
+                        Style="{StaticResource CRUDButtons}" Cursor="Hand"
+                        Content="Add"/>
+                                <Button Command="{Binding Path=AddNewRecordCommand}" ToolTip="Edit user"
+                        Style="{StaticResource CRUDButtons}" Cursor="Hand"
+                        Content="Edit"/>
+                                <Button Command="{Binding Path=DeleteCommand}" ToolTip="Delete User"
+                        Style="{StaticResource CRUDButtons}" Cursor="Hand"
+                        Content="Delete"/>
+                            </StackPanel>
+                        </Border>
+
+
+                    </StackPanel>
+
+
+                </Grid>
+
+            </Border>
+        </Grid>
+
+    </Grid>
+</UserControl>

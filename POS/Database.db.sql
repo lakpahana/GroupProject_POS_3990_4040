@@ -1,0 +1,73 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+	"MigrationId"	TEXT NOT NULL,
+	"ProductVersion"	TEXT NOT NULL,
+	CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY("MigrationId")
+);
+CREATE TABLE IF NOT EXISTS "Bills" (
+	"billId"	TEXT NOT NULL,
+	"billDate"	TEXT NOT NULL,
+	"billData"	TEXT NOT NULL,
+	"discount"	REAL NOT NULL,
+	"grandTotal"	REAL NOT NULL,
+	"subTotal"	REAL NOT NULL,
+	CONSTRAINT "PK_Bills" PRIMARY KEY("billId")
+);
+CREATE TABLE IF NOT EXISTS "Items" (
+	"itemId"	INTEGER NOT NULL,
+	"itemName"	TEXT NOT NULL,
+	"itemPrice"	INTEGER NOT NULL,
+	"itemCategory"	TEXT NOT NULL,
+	"itemPhoto"	TEXT NOT NULL,
+	CONSTRAINT "PK_Items" PRIMARY KEY("itemId" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "TM" (
+	"id"	INTEGER NOT NULL,
+	"ds"	TEXT NOT NULL,
+	CONSTRAINT "PK_TM" PRIMARY KEY("id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "Users" (
+	"UserId"	INTEGER NOT NULL,
+	"Name"	TEXT NOT NULL,
+	"PhoneNumber"	TEXT NOT NULL,
+	"IsAdmin"	INTEGER NOT NULL,
+	"Password"	TEXT NOT NULL,
+	"CashierId"	TEXT NOT NULL,
+	"ProfilePicture"	TEXT NOT NULL,
+	CONSTRAINT "PK_Users" PRIMARY KEY("UserId" AUTOINCREMENT)
+);
+INSERT INTO "__EFMigrationsHistory" VALUES ('20230521204010_inital','7.0.4');
+INSERT INTO "Bills" VALUES ('1727cc94-c9fd-4211-80ff-6afbeb283ddd','2023-05-22 02:29:45.648466','[{"BillID":"1727cc94-c9fd-4211-80ff-6afbeb283ddd","RowNo":2,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":3,"Total":30,"Comment":"Add comment"}]',10.0,30.0,0.0);
+INSERT INTO "Bills" VALUES ('cda121e8-a041-4d25-af8f-7e9b6b52a50b','2023-05-22 02:34:05.3880096','[{"BillID":"cda121e8-a041-4d25-af8f-7e9b6b52a50b","RowNo":1,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":4,"Total":40,"Comment":"Add comment"}]',0.0,40.0,40.0);
+INSERT INTO "Bills" VALUES ('a641bcb4-2bac-4a2b-af41-a10fdc147d4e','2023-05-22 02:34:32.1869426','[{"BillID":"a641bcb4-2bac-4a2b-af41-a10fdc147d4e","RowNo":2,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":6,"Total":60,"Comment":"Add comment"}]',10.0,60.0,50.0);
+INSERT INTO "Bills" VALUES ('a54c31f8-0b5b-4f76-bb5d-148d37a4cb77','2023-05-22 02:34:56.2113628','[{"BillID":"a54c31f8-0b5b-4f76-bb5d-148d37a4cb77","RowNo":3,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":3,"Total":30,"Comment":"Add comment"}]',0.0,30.0,30.0);
+INSERT INTO "Bills" VALUES ('3e7e3f38-b522-4389-b097-4d89eeae4a8f','2023-05-22 03:21:18.0909395','[{"BillID":"3e7e3f38-b522-4389-b097-4d89eeae4a8f","RowNo":1,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":1,"Total":10,"Comment":"Add comment"},{"BillID":"3e7e3f38-b522-4389-b097-4d89eeae4a8f","RowNo":2,"Item":{"itemId":2,"itemName":"New","itemPrice":100,"itemCategory":"Rice","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\7394-[Converted].png"},"Qty":3,"Total":300,"Comment":"Add comment"}]',0.0,310.0,310.0);
+INSERT INTO "Bills" VALUES ('d3bc4d3d-6459-49a0-b3cb-6b27c7a64a58','2023-05-22 16:29:25.8300918','[{"BillID":"d3bc4d3d-6459-49a0-b3cb-6b27c7a64a58","RowNo":1,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":2,"Total":20,"Comment":"Add comment"},{"BillID":"d3bc4d3d-6459-49a0-b3cb-6b27c7a64a58","RowNo":2,"Item":{"itemId":2,"itemName":"New","itemPrice":100,"itemCategory":"Rice","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\7394-[Converted].png"},"Qty":1,"Total":100,"Comment":"Add comment"}]',10.0,120.0,110.0);
+INSERT INTO "Bills" VALUES ('a5732b8e-424e-4e97-9387-9c2e7ec66673','2023-05-22 16:33:46.5703114','[{"BillID":"a5732b8e-424e-4e97-9387-9c2e7ec66673","RowNo":1,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":3,"Total":30,"Comment":"Add comment"}]',10.0,30.0,20.0);
+INSERT INTO "Bills" VALUES ('2403b812-78e4-4aea-8752-4d554ec839e7','2023-05-22 16:35:14.6912222','[{"BillID":"2403b812-78e4-4aea-8752-4d554ec839e7","RowNo":1,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":4,"Total":40,"Comment":"Add comment"}]',0.0,40.0,40.0);
+INSERT INTO "Bills" VALUES ('b2ff7177-9289-43e4-ab16-8fc568dced48','2023-05-22 16:45:09.4258102','[{"BillID":"b2ff7177-9289-43e4-ab16-8fc568dced48","RowNo":1,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":4,"Total":40,"Comment":"Add comment"}]',0.0,40.0,40.0);
+INSERT INTO "Bills" VALUES ('a0654d09-afb4-479d-95af-f63feafd8c25','2023-05-23 05:13:04.9068176','[{"BillID":"a0654d09-afb4-479d-95af-f63feafd8c25","RowNo":1,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":3,"Total":30,"Comment":"Add comment"},{"BillID":"a0654d09-afb4-479d-95af-f63feafd8c25","RowNo":2,"Item":{"itemId":3,"itemName":"Coca Cola","itemPrice":1000,"itemCategory":"Beverages","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Scanned Documents\\Welcome Scan.jpg"},"Qty":1,"Total":1000,"Comment":"Add comment"},{"BillID":"a0654d09-afb4-479d-95af-f63feafd8c25","RowNo":3,"Item":{"itemId":2,"itemName":"New","itemPrice":100,"itemCategory":"Rice","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\7394-[Converted].png"},"Qty":1,"Total":100,"Comment":"Add comment"}]',100.0,1130.0,0.0);
+INSERT INTO "Bills" VALUES ('7fc3bb76-c7bd-4146-998e-416489276271','2023-05-23 05:42:34.9831236','[{"BillID":"7fc3bb76-c7bd-4146-998e-416489276271","RowNo":1,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":6,"Total":60,"Comment":"Add comment"},{"BillID":"7fc3bb76-c7bd-4146-998e-416489276271","RowNo":2,"Item":{"itemId":3,"itemName":"Coca Cola","itemPrice":1000,"itemCategory":"Beverages","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Scanned Documents\\Welcome Scan.jpg"},"Qty":5,"Total":5000,"Comment":"Add comment"}]',20.0,5060.0,4048.0);
+INSERT INTO "Bills" VALUES ('2ac49cb5-641b-4a97-96a0-72078aff2d1a','2023-05-23 05:53:01.9610094','[{"BillID":"2ac49cb5-641b-4a97-96a0-72078aff2d1a","RowNo":1,"Item":{"itemId":2,"itemName":"New","itemPrice":100,"itemCategory":"Rice","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\7394-[Converted].png"},"Qty":3,"Total":300,"Comment":"Add comment"}]',0.0,300.0,300.0);
+INSERT INTO "Bills" VALUES ('a535a1ec-569f-4da1-b6e2-1e54752ea007','2023-05-23 05:53:08.0779559','[]',0.0,0.0,0.0);
+INSERT INTO "Bills" VALUES ('d7294db5-0cad-46d8-8ec7-0651745a09d2','2023-05-23 05:56:29.055957','[{"BillID":"d7294db5-0cad-46d8-8ec7-0651745a09d2","RowNo":1,"Item":{"itemId":1,"itemName":"Chicken Kottu","itemPrice":10,"itemCategory":"Kottu","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Annotation 2021-12-24 013606.jpg"},"Qty":1,"Total":10,"Comment":"Add comment"},{"BillID":"d7294db5-0cad-46d8-8ec7-0651745a09d2","RowNo":2,"Item":{"itemId":2,"itemName":"New","itemPrice":100,"itemCategory":"Rice","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\7394-[Converted].png"},"Qty":1,"Total":100,"Comment":"Add comment"},{"BillID":"d7294db5-0cad-46d8-8ec7-0651745a09d2","RowNo":3,"Item":{"itemId":3,"itemName":"Coca Cola","itemPrice":1000,"itemCategory":"Beverages","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Scanned Documents\\Welcome Scan.jpg"},"Qty":1,"Total":1000,"Comment":"Add comment"}]',5.0,1110.0,1054.5);
+INSERT INTO "Bills" VALUES ('645cc377-1cdf-4a64-a933-3cea1f23a5bc','2023-05-23 06:01:43.4582057','[{"BillID":"645cc377-1cdf-4a64-a933-3cea1f23a5bc","RowNo":2,"Item":{"itemId":3,"itemName":"Coca Cola","itemPrice":1000,"itemCategory":"Beverages","itemPhoto":"C:\\Users\\Lakpahana\\Documents\\Scanned Documents\\Welcome Scan.jpg"},"Qty":4,"Total":4000,"Comment":"1l bottle"}]',0.0,4000.0,4000.0);
+INSERT INTO "Bills" VALUES ('1b1fcd01-ace1-4700-9f76-e7d8b512a73a','2023-05-24 00:01:29.5194736','[{"BillID":"1b1fcd01-ace1-4700-9f76-e7d8b512a73a","RowNo":1,"Item":{"itemId":6,"itemName":"Bourbon","itemPrice":170,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Bourbon_100g.jpg"},"Qty":2,"Total":340,"Comment":"Add comment"},{"BillID":"1b1fcd01-ace1-4700-9f76-e7d8b512a73a","RowNo":2,"Item":{"itemId":11,"itemName":"Cheese Cracker","itemPrice":170,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Cheese Cracker 100g.jpg"},"Qty":2,"Total":340,"Comment":"Add comment"}]',1500.0,680.0,-9520.0);
+INSERT INTO "Bills" VALUES ('1b49bdc7-a004-47bf-b2fd-a52074009c5f','2023-05-24 00:09:28.4326501','[{"BillID":"1b49bdc7-a004-47bf-b2fd-a52074009c5f","RowNo":1,"Item":{"itemId":13,"itemName":"Chocolate Puff 200g","itemPrice":270,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Munchee Chocolate Puff 200g_280.jpg"},"Qty":3,"Total":810,"Comment":"Munchee"},{"BillID":"1b49bdc7-a004-47bf-b2fd-a52074009c5f","RowNo":2,"Item":{"itemId":6,"itemName":"Bourbon","itemPrice":170,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Bourbon_100g.jpg"},"Qty":1,"Total":170,"Comment":"Add comment"},{"BillID":"1b49bdc7-a004-47bf-b2fd-a52074009c5f","RowNo":3,"Item":{"itemId":11,"itemName":"Cheese Cracker","itemPrice":170,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Cheese Cracker 100g.jpg"},"Qty":1,"Total":170,"Comment":"Add comment"}]',10.0,1150.0,1035.0);
+INSERT INTO "Bills" VALUES ('4d7aaabb-26bf-4174-a70e-863c5f2ad917','2023-05-25 13:08:07.3238925','[{"BillID":"4d7aaabb-26bf-4174-a70e-863c5f2ad917","RowNo":2,"Item":{"itemId":11,"itemName":"Cheese Cracker","itemPrice":170,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Cheese Cracker 100g.jpg"},"Qty":4,"Total":680,"Comment":"Add comment"},{"BillID":"4d7aaabb-26bf-4174-a70e-863c5f2ad917","RowNo":3,"Item":{"itemId":12,"itemName":"Ginger 240g","itemPrice":270,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Maliban Ginger Biscuit 240g.jpg"},"Qty":2,"Total":540,"Comment":"Add comment"},{"BillID":"4d7aaabb-26bf-4174-a70e-863c5f2ad917","RowNo":6,"Item":{"itemId":13,"itemName":"Chocolate Puff 200g","itemPrice":270,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Munchee Chocolate Puff 200g_280.jpg"},"Qty":1,"Total":270,"Comment":"Add comment"}]',10.0,1490.0,1341.0);
+INSERT INTO "Bills" VALUES ('f218a5a4-6a3d-47f3-8180-81dccd63acd5','2023-07-15 10:56:37.2284658','[{"BillID":"f218a5a4-6a3d-47f3-8180-81dccd63acd5","RowNo":3,"Item":{"itemId":9,"itemName":"Nice Biscuits 100g","itemPrice":130,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Nice Biscuits 100g.jpg"},"Qty":2,"Total":260,"Comment":"hgn"},{"BillID":"f218a5a4-6a3d-47f3-8180-81dccd63acd5","RowNo":4,"Item":{"itemId":6,"itemName":"Bourbon","itemPrice":170,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Bourbon_100g.jpg"},"Qty":3,"Total":510,"Comment":"kj"}]',5.0,770.0,731.5);
+INSERT INTO "Bills" VALUES ('ff8034cf-b50a-43a0-a96c-879d90741af3','2023-07-15 10:58:15.3907805','[{"BillID":"ff8034cf-b50a-43a0-a96c-879d90741af3","RowNo":1,"Item":{"itemId":8,"itemName":"Munchee Chocolate Cream 1000g","itemPrice":140,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Chocolate Cream_100g.jpg"},"Qty":2,"Total":280,"Comment":"Add comment"},{"BillID":"ff8034cf-b50a-43a0-a96c-879d90741af3","RowNo":2,"Item":{"itemId":19,"itemName":"Chocolate Creaam 100g","itemPrice":180,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Munchee Chocolate Puff 200g_280.jpg"},"Qty":2,"Total":360,"Comment":"Add comment"}]',10.0,640.0,576.0);
+INSERT INTO "Bills" VALUES ('24eae221-7012-49dc-b463-44ee34f0c78a','2023-07-15 11:00:36.9117339','[{"BillID":"24eae221-7012-49dc-b463-44ee34f0c78a","RowNo":1,"Item":{"itemId":6,"itemName":"Bourbon","itemPrice":170,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Bourbon_100g.jpg"},"Qty":7,"Total":1190,"Comment":"Add comment"},{"BillID":"24eae221-7012-49dc-b463-44ee34f0c78a","RowNo":2,"Item":{"itemId":8,"itemName":"Munchee Chocolate Cream 1000g","itemPrice":140,"itemCategory":"Biscuits","itemPhoto":"D:\\Original POS\\Hotel_POS_F-master\\images\\Chocolate Cream_100g.jpg"},"Qty":2,"Total":280,"Comment":"Add comment"}]',5.0,1470.0,1396.5);
+INSERT INTO "Items" VALUES (6,'Bourbon',170,'Biscuits','D:\Original POS\Hotel_POS_F-master\images\Bourbon_100g.jpg');
+INSERT INTO "Items" VALUES (8,'Munchee Chocolate Cream 1000g',140,'Biscuits','D:\Original POS\Hotel_POS_F-master\images\Chocolate Cream_100g.jpg');
+INSERT INTO "Items" VALUES (9,'Nice Biscuits 100g',130,'Biscuits','D:\Original POS\Hotel_POS_F-master\images\Nice Biscuits 100g.jpg');
+INSERT INTO "Items" VALUES (11,'Cheese Cracker',170,'Biscuits','D:\Original POS\Hotel_POS_F-master\images\Cheese Cracker 100g.jpg');
+INSERT INTO "Items" VALUES (19,'Chocolate Creaam 100g',180,'Biscuits','D:\Original POS\Hotel_POS_F-master\images\Munchee Chocolate Puff 200g_280.jpg');
+INSERT INTO "Items" VALUES (23,'Pepsi 1.5 L',350,'Soft Drinks','C:\Users\Pramitha Jayasooriya.000\Desktop\Screenshot 2023-07-15 113451.png');
+INSERT INTO "Items" VALUES (24,'Coca Cola 400ml',150,'Soft Drinks','C:\Users\Pramitha Jayasooriya.000\Desktop\coca col 400ml.png');
+INSERT INTO "Items" VALUES (25,'Sprite 2L',375,'Soft Drinks','C:\Users\Pramitha Jayasooriya.000\Desktop\sprite 2L.png');
+INSERT INTO "Users" VALUES (1,'admin','8888',1,'admin','12','');
+INSERT INTO "Users" VALUES (3,'Cash','66',0,'cash','10','D:\Original POS\Hotel_POS_F-master\vector-users-icon.jpg');
+INSERT INTO "Users" VALUES (9,'hgfh','876546',0,'hgfh','hgfhfg','C:\Users\Pramitha Jayasooriya.000\Desktop\sprite 2L.png');
+INSERT INTO "Users" VALUES (10,'hgfh','876546',0,'hgfh','hgfhfg','C:\Users\Pramitha Jayasooriya.000\Desktop\sprite 2L.png');
+COMMIT;

@@ -1,0 +1,281 @@
+﻿<Window x:Class="Hotel_POS.View.AdminWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hotel_POS.View" 
+        xmlns:viewModel="clr-namespace:Hotel_POS.ViewModel" xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material"
+        mc:Ignorable="d"
+        
+        Title="AdminWindowView" Height="750" Width="1200"
+        WindowStyle="None" 
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Window.DataContext>
+        <viewModel:AdminWindowViewModel/>
+    </Window.DataContext>
+
+    <!--<StackPanel>
+            <Button Command="{Binding Path=ManageCashiersCommand}">Manage Cashiers</Button>
+            <Button>Manage Items</Button>
+            <Button>Show Transactions</Button>
+        </StackPanel>-->
+    <!--________________________________________________________________________________________-->
+
+
+
+
+    <Border CornerRadius="10 30 10 30"                    
+            BorderThickness="2" Opacity="1">
+        
+           
+        
+        <!--<Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.75"/>
+                <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>-->
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#462AD8" Offset="0"/>
+                <GradientStop Color="#DA34AE" Offset="0.75"/>
+                <GradientStop Color="#8A16C1" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#5c0303" Offset="0"/>
+                <GradientStop Color="#1B1448" Offset="1"/>
+                
+                
+
+            </LinearGradientBrush>
+
+        </Border.Background>
+        <Grid >
+            <Border CornerRadius="30">
+                <Border.Background>
+                    <ImageBrush Stretch="UniformToFill" Opacity="0.20"
+                                        ImageSource="\img\food.png"/>
+                </Border.Background>
+            </Border>
+
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <!--Navigation menu-->
+                    <ColumnDefinition Width="0.35*"/>
+                    <!--Content Section-->
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Navigation Menu-->
+                <Border CornerRadius="5,0,0,30" 
+                    Grid.Column="0" Style="{StaticResource Borders}"
+                        BorderThickness="4">
+
+                    <!--<Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                        <GradientStop Color="{StaticResource secondaryBackColor1}"
+                                      Offset="0"/>
+                        <GradientStop Color="{StaticResource secondaryBackColor2}"
+                                      Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>-->
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#462AD8" Offset="0"/>
+                            <GradientStop Color="#DA34AE" Offset="0.75"/>
+                            <GradientStop Color="#8A16C1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                            <GradientStop Color="#5c0303" Offset="0"/>
+                            <GradientStop Color="#1B1448" Offset="1"/>
+                        </LinearGradientBrush>
+
+                    </Border.Background>
+
+                    <StackPanel>
+
+                        <!--Logo-->
+                        <StackPanel Orientation="Horizontal"
+                                Height="35" Margin="15,25,0,40">
+
+                            <Image Source="/img/food.png" Height="30"/>
+                            <TextBlock Text="Bata Kade"
+                                   Foreground="{StaticResource titleColor2}"
+                                   FontSize="20"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium" 
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,0,0"/>
+
+                        </StackPanel>
+
+                        <!--Menu Button-->
+                        <RadioButton Style="{StaticResource navigationMenuButton}"
+                                 Tag="{StaticResource color1}"                                 
+                                Checked="ManageCashierCheck">
+
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Users" Style="{StaticResource navigationMenuButtonIcon}"/>
+                                <TextBlock Text="ManageCashier" Style="{StaticResource navigationMenuButtonText}"/>
+                            </StackPanel>
+
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource navigationMenuButton}"
+                                 Tag="{StaticResource color2}"
+                                 Checked="ManageItemCheck">
+
+
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="BowlFood" Style="{StaticResource navigationMenuButtonIcon}"/>
+                                <TextBlock Text="ManageItem" Style="{StaticResource navigationMenuButtonText}"/>
+                            </StackPanel>
+
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource navigationMenuButton}"
+                                 Tag="{StaticResource color3}"   
+                                 Checked="ShowTranstractionChecked">
+
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="HandHoldingDollar"  Style="{StaticResource navigationMenuButtonIcon}"/>
+                                <TextBlock Text="Show Transtraction" Style="{StaticResource navigationMenuButtonText}"/>
+                            </StackPanel>
+
+                        </RadioButton>
+
+                        <Button Margin=" 0 120 0 0"
+                                Cursor="Hand" 
+                                Style="{StaticResource loginBtn}" 
+                                Command="{Binding Path=LogoutCommand}" Width="193">
+                            <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="Logout" />                       
+                            <TextBlock Margin="5 0 0 0" Text="LOG OUT" />
+                        </StackPanel>
+                        </Button>
+                        
+                    </StackPanel>
+
+                </Border>
+
+                <!--Main Section-->
+
+                <Border CornerRadius="0,10,10,0"
+                    Grid.Column="1">
+
+                    <!--<Border.Background>
+                        <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                            <GradientStop Color="{StaticResource primaryBackColor1}"
+                                      Offset="0"/>
+                            <GradientStop Color="{StaticResource primaryBackColor2}"
+                                      Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>-->
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <!--Control bar-->
+                            <RowDefinition Height="35"/>
+                            <!--Header / Caption-->
+                            <RowDefinition Height="35"/>
+                            <!--Content section / Child views-->
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <!--Control bar-->
+                        <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0,0,5,0"
+                                MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
+                                MouseEnter="pnlControlBar_MouseEnter">
+
+                            <Button x:Name="btnClose"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}"
+                                Click="btnClose_Click">
+                                <fa:IconImage Icon="Xmark" Width="15" Height="15"
+                                          Style="{StaticResource controlButtonIcon}"/>
+
+                            </Button>
+
+                            <Button x:Name="btnMaximize"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color8}"
+                                Click="btnMaximize_Click">
+                                <fa:IconImage Icon="WindowMaximize" Width="15" Height="15"
+                                          Style="{StaticResource controlButtonIcon}"/>
+
+                            </Button>
+
+                            <Button x:Name="btnMinimize"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color6}"
+                                Click="btnMinimize_Click">
+                                <fa:IconImage Icon="WindowMinimize" Width="15" Height="15"
+                                          Style="{StaticResource controlButtonIcon}"/>
+
+                            </Button>
+                            <TextBlock x:Name="clockTextBlock" 
+                                                   Foreground="White"
+                                                   FontSize="15"
+                                                   Margin="10" Grid.Row="0" 
+                                                   HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center"/>
+
+                        </StackPanel>
+
+
+                    </Grid>
+
+                </Border>
+                <ContentControl x:Name="NavigationControl" Grid.Column="1"/>
+
+            </Grid>
+
+        </Grid>
+
+    </Border>
+
+
+
+
+    <!--______________________________________________________________________________________-->
+    <!--<Grid>-->
+            <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Background="Beige"
+>
+            <RadioButton x:Name="ManageCashier" 
+                         Content="ManageCashier" 
+                         Style="{StaticResource NavigationButtonnTheme}"
+                         Checked="ManageCashierCheck"/>
+            <RadioButton x:Name="ManageItem" 
+                         Content="ManageItem" 
+                         Style="{StaticResource NavigationButtonnTheme}"
+                         Checked="ManageItemCheck"/>
+            <RadioButton x:Name="Showtranstraction" 
+                         Content="Showtranstraction"
+                         Style="{StaticResource NavigationButtonnTheme}"
+                         Checked="ShowTranstractionChecked"/>
+        </StackPanel>
+
+        
+    </Grid>-->
+</Window>

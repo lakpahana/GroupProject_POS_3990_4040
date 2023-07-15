@@ -1,0 +1,43 @@
+﻿<Application x:Class="Hotel_POS.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Hotel_POS"
+             StartupUri="View/LoginWindow.xaml">
+
+    <!--"View/AdminWindowView.xaml-->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                
+                <ResourceDictionary Source="/Theme/FoodButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/IconPackTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/LoginButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/NavigationButtonnTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/TextButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/UIColorTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/NavigationMenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/navigationMenuButtonIconTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/ControlBarButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/CRUDButtons.xaml"/>
+                <ResourceDictionary Source="/Theme/FoodItemButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/MainBorderColor.xaml"/>
+                <ResourceDictionary Source="/Theme/DataGridTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/ListViewTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/BindablePasswordBoxTheme.xaml"/>
+
+
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+        <!--<ResourceDictionary>
+            <DataTemplate DataType="{x:Type viewModel:ManageCashiersWindowVM}" >
+                <view:ManageCashiersWindowView/>
+        </DataTemplate>
+        </ResourceDictionary>-->
+
+
+
+    </Application.Resources>
+</Application>

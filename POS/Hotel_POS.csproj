@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="chatgpt.txt" />
+    <None Remove="dbnew.db" />
+    <None Remove="dbnew.db-shm" />
+    <None Remove="dbnew.db-wal" />
+    <None Remove="Fonts\password.ttf" />
+    <None Remove="img\3.png" />
+    <None Remove="img\camera.jpg" />
+    <None Remove="img\camera_logo.jpg" />
+    <None Remove="img\food.png" />
+    <None Remove="img\Profile.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+    <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+    <PackageReference Include="MahApps.Metro.Resources" Version="0.6.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\password.ttf" />
+    <Resource Include="img\3.png" />
+    <Resource Include="img\camera.jpg" />
+    <Resource Include="img\camera_logo.jpg" />
+    <Resource Include="img\food.png" />
+    <Resource Include="img\Profile.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ApplicationDefinition>
+  </ItemGroup>
+
+</Project>

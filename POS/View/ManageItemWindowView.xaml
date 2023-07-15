@@ -1,0 +1,263 @@
+﻿<UserControl x:Class="Hotel_POS.View.ManageItemWindowView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hotel_POS.View" 
+             xmlns:viewModel="clr-namespace:Hotel_POS.ViewModel" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1200">
+    <!--<UserControl.DataContext>
+        <viewModel:ManageItemsVM />
+    </UserControl.DataContext>-->
+    <Border CornerRadius="30">
+        <Grid >
+            <Grid.RowDefinitions>
+                <!--Control bar-->
+                <RowDefinition Height="45"/>
+                <!--Header / Caption-->
+                <RowDefinition Height="60"/>
+                <!--Content section / Child views-->
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Control bar-->
+            <Grid Grid.Row="0" Margin="0 0 0 10">
+                <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0,0,5,0"
+                                MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
+                                MouseEnter="pnlControlBar_MouseEnter">
+
+
+                    <Button x:Name="btnClose"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}"
+                                Click="btnClose_Click">
+                        <fa:IconImage Icon="Xmark" Width="15" Height="15"
+                                 Style="{StaticResource controlButtonIcon}"/>
+
+                    </Button>
+
+                    <Button x:Name="btnMaximize"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color8}"
+                                Click="btnMaximize_Click">
+                        <fa:IconImage Icon="WindowMaximize" Width="15" Height="15"
+                                          Style="{StaticResource controlButtonIcon}"/>
+
+                    </Button>
+
+                    <Button x:Name="btnMinimize"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color6}"
+                                Click="btnMinimize_Click">
+                        <fa:IconImage Icon="WindowMinimize" Width="15" Height="15"
+                                          Style="{StaticResource controlButtonIcon}"/>
+
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+
+            <!--Header / Caption-->
+            <Border Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border  Grid.Column="0" Margin="5 0 0 0"
+                 Style="{StaticResource Borders}"
+                 CornerRadius="10 10 10 10">
+                        <Grid>
+                            <TextBlock  Text="Categories"
+                               FontSize="20" 
+                               Foreground="White"
+                               Margin="5"
+                               VerticalAlignment="Center" HorizontalAlignment="center" 
+                               FontWeight="Bold"/>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Column="1" Style="{StaticResource Borders}"
+                                CornerRadius="10" Margin="10 0 10 0">
+                        <Grid >
+                            <TextBlock Text="Product List" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                                       TextAlignment="Center"
+                               Margin="10" 
+                               FontSize="20" 
+                               FontWeight="Medium"/>
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </Border>
+
+
+            <!--Content section / Child views-->
+
+            <Grid Background="Transparent" Grid.Row="2">
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="2">
+                        <Grid>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="0.3*"/>
+                                </Grid.RowDefinitions>
+
+
+                                <!--<TextBlock  Text="Manage Item"
+                               FontSize="25"
+                               Foreground="White"
+                               Margin="5"
+                               VerticalAlignment="Center" HorizontalAlignment="Left" 
+                               FontFamily="Source Serif Pro Black" 
+                               FontStretch="Medium"/>-->
+                                <Border Style="{StaticResource Borders}" Grid.Row="0"
+                                CornerRadius="10 10 10 10" Margin="5,10,0,0">
+                                    <ListView x:Name="Lv1" Background="Transparent"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Top"
+                              BorderBrush="Transparent"
+                              ItemsSource="{Binding ItemsListCat,UpdateSourceTrigger=PropertyChanged}" >
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Button Content="{Binding Name}" 
+                                         
+                                        Style="{StaticResource foodButton}"
+                                        Command="{Binding ElementName=Lv1, 
+                                                          Path=DataContext.CatClickCommand}" 
+                                        CommandParameter="{Binding}"/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </Border>
+
+                                <Border Grid.Row="1" Style="{StaticResource Borders}"
+                                CornerRadius="10" Margin="5 5 0 5">
+                                    <StackPanel>
+                                        <Button Content="Add"
+                                Command="{Binding Path=AddItemCommand}"
+                                Style="{StaticResource CRUDButtons}" 
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0"/>
+
+                                        <Button Content="Edit"
+                                Command="{Binding Path=EditItemCommand}"
+                                Style="{StaticResource CRUDButtons}" 
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0" />
+
+                                        <Button Content="Delete"
+                                Command="{Binding Path=DeleteItemCommand}"
+                                Style="{StaticResource CRUDButtons}" 
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0"/>
+                                    </StackPanel>
+
+                                </Border>
+
+                            </Grid>
+                        </Grid>
+
+
+                    </Grid>
+                    <!--<Grid Grid.Column="1" Grid.Row="0">
+                    <TextBlock  Text="Manage Item"
+                               FontSize="25"
+                               Foreground="White"
+                               Margin="5"
+                               VerticalAlignment="Center" HorizontalAlignment="Left" 
+                               FontFamily="Source Serif Pro Black" 
+                               FontStretch="Medium"/>
+                </Grid>-->
+                    <ScrollViewer 
+                              Background="Transparent" 
+                              BorderBrush="Transparent" 
+                              Grid.Column="2" Margin="10,-50,0,0" 
+                              Grid.Row="2"
+                              VerticalScrollBarVisibility="Auto">
+
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.2*"/>
+                                <RowDefinition Height="4*"/>
+                            </Grid.RowDefinitions>
+                            <!--<Border Grid.Row="0" Style="{StaticResource Borders}"
+                                CornerRadius="10" Margin="0 5 0 0">
+                            <Grid >
+                               <TextBlock Text="Product List" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               Margin="10" 
+                               FontSize="20" 
+                               FontWeight="Medium"/>
+                            </Grid> 
+                        </Border>-->
+                            <Border Grid.Row="1" Style="{StaticResource Borders}" CornerRadius="10" Margin="0 25 10 5">
+                                <Grid>
+                                    <StackPanel Margin="20 0">
+                                        <ListView x:Name="ListViewProducts" 
+                      ItemsSource="{Binding CurrentSelection}" 
+                      SelectedItem="{Binding SelectedOne}"
+                      Background="Transparent"
+                      BorderBrush="Transparent"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="10" Width="110" Height="110" BorderThickness="2" BorderBrush="White" CornerRadius="10">
+                                                        <!--<Button Command="{Binding DataContext.ItemClickedCommand,ElementName=ListViewProducts}" CommandParameter="{Binding}">-->
+                                                        <Grid>
+                                                            <Border Width="100" Height="100" CornerRadius="5">
+                                                                <Border.Effect>
+                                                                    <DropShadowEffect ShadowDepth="1"/>
+                                                                </Border.Effect>
+                                                                <Border.Background>
+                                                                    <ImageBrush ImageSource="{Binding itemPhoto}"/>
+                                                                </Border.Background>
+                                                            </Border>
+                                                            <TextBlock Style="{StaticResource AnnotationStyle223}" Text="{Binding itemName, StringFormat={}{0:C}}" FontSize="13" Margin="2 0 2 2" 
+                                                                       FontFamily="Franklin Gothic Medium" />
+                                                            <TextBlock Margin="2 2 0 0" Text="{Binding itemPrice}" Style="{StaticResource AnnotationStyle22}" FontSize="15"/>
+                                                        </Grid>
+                                                        <!--</Button>-->
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                        </ListView>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+
+</UserControl>

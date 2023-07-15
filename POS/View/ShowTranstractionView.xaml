@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="Hotel_POS.View.ShowTranstractionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hotel_POS.ViewModel" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:ShowTransactionsVM></local:ShowTransactionsVM>
+    </UserControl.DataContext>
+    <Grid >
+
+        <Grid.RowDefinitions>
+            <!--Control bar-->
+            <RowDefinition Height="35"/>
+            <!--Header / Caption-->
+            <RowDefinition Height="45"/>
+            <!--Content section / Child views-->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Control bar-->
+        <Grid Grid.Row="0">
+            <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0,0,5,0"
+                                MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
+                                MouseEnter="pnlControlBar_MouseEnter">
+
+                <Button x:Name="btnClose"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}"
+                                Click="btnClose_Click">
+                    <fa:IconImage Icon="Xmark" Width="15" Height="15"
+                                 Style="{StaticResource controlButtonIcon}"/>
+
+                </Button>
+
+                <Button x:Name="btnMaximize"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color8}"
+                                Click="btnMaximize_Click">
+                    <fa:IconImage Icon="WindowMaximize" Width="15" Height="15"
+                                          Style="{StaticResource controlButtonIcon}"/>
+
+                </Button>
+
+                <Button x:Name="btnMinimize"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color6}"
+                                Click="btnMinimize_Click">
+                    <fa:IconImage Icon="WindowMinimize" Width="15" Height="15"
+                                          Style="{StaticResource controlButtonIcon}"/>
+
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <!--Header / Caption-->
+        <Grid Grid.Row="1">
+            <TextBlock Text="Transactions History" FontSize="25" Foreground="#ffffff"
+                       Margin="10"
+                       VerticalAlignment="Center" HorizontalAlignment="Left"
+                       />
+        </Grid>
+
+        <!--Content section / Child views-->
+        <Grid Grid.Row="2" Margin="10 10 10 10" >
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <DataGrid Name="dg" ItemsSource="{Binding BillsList}"
+              Foreground="Black"
+              AutoGenerateColumns="False"
+              HorizontalScrollBarVisibility="Auto"
+              RowStyle="{DynamicResource DataGridRowStyle1}"
+              ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+              CellStyle="{DynamicResource DataGridCellStyle1}"
+              Style="{DynamicResource DataGridStyle1}">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Bill Id" Width="100" Binding="{Binding billId}" SortDirection="Ascending" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Date" Width="150" Binding="{Binding billDate}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Grand Total" Width="80" Binding="{Binding grandTotal}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Discount" Width="80" Binding="{Binding discount}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Sub Total" Width="80" Binding="{Binding subTotal}" IsReadOnly="True" />
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="View Detailed Bill"
+                                Command="{Binding DataContext.ShowItemListCommand,ElementName=dg}"
+                                CommandParameter="{Binding}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+
+        </Grid>
+    </Grid>
+</UserControl>

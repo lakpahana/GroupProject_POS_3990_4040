@@ -1,0 +1,70 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--Menu Button-->
+    
+    <Style x:Key="navigationMenuButton" TargetType="RadioButton">
+        
+        <!--normal button style-->
+        
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Margin" Value="-5,0,0,5"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource plainTextColor3}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderThickness="4,0,0,0"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <!--Mouse over back color-->
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Margin" Value="0,0,0,5"/>
+                <Setter Property="Background" Value="{StaticResource panelOverColor}"/>
+                <Setter Property="Foreground" Value="{StaticResource titleColor3}"/>
+                <Setter Property="BorderBrush" Value="{Binding Path=Tag,RelativeSource={RelativeSource Self}}"/>
+            </Trigger>
+
+            <!--Active button back color-->
+
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Margin" Value="0,0,0,5"/>
+                <Setter Property="Background" Value="{StaticResource panelActiveColor}"/>
+                <Setter Property="Foreground" Value="{Binding Path=Tag,RelativeSource={RelativeSource Self}}"/>
+                <Setter Property="BorderBrush" Value="{Binding Path=Tag,RelativeSource={RelativeSource Self}}"/>
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+    
+    <!--Menu button Icon-->
+
+    <!--<Style x:Key="navigationMenuButtonIcon" TargetType="fa:IconImage">
+        <Setter Property="Foreground" Value="{Binding Path=Tag,RelativeSource={RelativeSource AncestorType=RadioButton}}"/>
+        <Setter Property="Width" Value="22"/>
+        <Setter Property="Height" Value="22"/>
+        <Setter Property="Margin" Value="35,0,20,0"/>
+    </Style>-->
+    
+    <!--Menu button text-->
+
+    <Style x:Key="navigationMenuButtonText" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{Binding Path=Tag,RelativeSource={RelativeSource AncestorType=RadioButton}}"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontSize" Value="13.5"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+
+
+</ResourceDictionary>

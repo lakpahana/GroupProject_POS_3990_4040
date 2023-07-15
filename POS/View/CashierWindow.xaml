@@ -1,0 +1,720 @@
+﻿<Window x:Class="Hotel_POS.CashierWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hotel_POS.ViewModel" xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material"
+        mc:Ignorable="d"
+        WindowStyle="None" 
+        Background="Transparent"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"  
+        WindowStartupLocation="CenterScreen"
+        Title="CashierWindow" Height="750" Width="1350">
+    <!--<Window.DataContext>
+        <local:CashierWindowVM/>
+    </Window.DataContext>-->
+    <Border  CornerRadius="30" 
+             MouseDown="Border_MouseDown">
+
+        <Grid >
+            <Border CornerRadius="30 30 0 30"                    
+            BorderThickness="2"
+            Opacity="1">
+
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#462AD8" Offset="0"/>
+                        <GradientStop Color="#DA34AE" Offset="0.75"/>
+                        <GradientStop Color="#8A16C1" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                        <GradientStop Color="#5c0303" Offset="0"/>
+                        <GradientStop Color="#1B1448" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid >
+                    <Border CornerRadius="30">
+                        <Border.Background>
+                            <ImageBrush Stretch="UniformToFill" Opacity="0.20"
+                        ImageSource="\img\food.png"/>
+                        </Border.Background>
+                    </Border>
+                    <Grid>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="5"/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="btnMinimize"                           
+                            BorderThickness="10"
+                            Content="-"
+                            
+                            FontSize="16"
+                            FontFamily="Montserrat"
+                            Cursor="Hand" Grid.Column="1"
+                            Click="btnMinimize_Click" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30">
+
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background" Value="#28AEED"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#34eb49"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Width="25" Height="25"
+                                        CornerRadius="12"
+                                        Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <Button x:Name="btnResize"                          
+                            BorderThickness="0"
+                            Content="⌂"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Click="btnResize_Click" >
+
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background" Value="Green"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#C62DAE"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Width="25" Height="25"
+                                        CornerRadius="12"
+                                        Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <Button x:Name="btnClose"                          
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="3"
+                            Click="btnClose_Click">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background" Value="#DA34AE"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#eb3434"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Width="25" Height="25"
+                                        CornerRadius="12"
+                                        Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"/>
+                                        <ColumnDefinition Width="120"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition/>
+
+
+                                        </Grid.ColumnDefinitions>
+                                        <Border CornerRadius="28" Grid.Column="1"  BorderThickness="2">
+                                            <!--user photo-->
+
+                                            <!--<Image Source="{Binding CashierPhoto,UpdateSourceTrigger=PropertyChanged}" 
+                                                   Width="50" Height="50" 
+                                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                                               />-->
+                                        </Border>
+                                        <!--Menu Logo-->
+                                        <Border Width="44" Padding="3" ToolTip="Cashier Profile Photo"
+                                                    Background="White" 
+                                                    CornerRadius="100"  
+                                                    HorizontalAlignment="Left" Margin="10,3,0,3" Grid.ColumnSpan="2" Grid.Column="1">
+                                            <Ellipse Margin="-1,-1,0,-1">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="{Binding CashierPhoto,UpdateSourceTrigger=PropertyChanged}" />
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                        </Border>
+
+
+
+
+
+
+
+
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <!--Cashier id-->
+                                        <TextBlock Text="{Binding CashierID1, StringFormat='Cashier ID: {0}'}"
+                                                   FontSize="16" FontWeight="Bold" Foreground="White"
+                                                   HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                    />
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                        <!--User name-->
+                                        <TextBlock Text="{Binding Username, StringFormat='Cashier Name: {0}'}"
+                                                   FontSize="16" FontWeight="Bold" Foreground="White"
+                                                   HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                    />
+                                    </Grid>
+                                    <Grid Grid.Column="4">
+                                        <TextBlock x:Name="clockTextBlock" 
+                                                   Foreground="White"
+                                                   FontSize="15"
+                                                   Margin="10" Grid.Row="0" 
+                                                   HorizontalAlignment="Right" 
+                                                   VerticalAlignment="Center"/>
+                                    </Grid>
+
+                                </Grid>
+
+
+                            </Grid>
+                            <Grid Grid.Row="1">
+
+                                <Border Style="{StaticResource Borders}" BorderThickness="0 3 0 0">
+
+                                    <Grid  >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="*"/>
+
+                                            <!--<RowDefinition Height="0.85*"/>-->
+                                            <!--<RowDefinition Height="85"/>-->
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="4.5*"/>
+                                            <ColumnDefinition Width="1.6*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                        </Grid.ColumnDefinitions>
+                    
+                                        <Grid Grid.Column="0" Grid.Row="1">
+                                            <Grid>
+
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="0.4*"/>
+
+                                                </Grid.RowDefinitions>
+                                                
+                                                <Border Style="{StaticResource Borders}" 
+                                                CornerRadius="0 20 0 30"
+                                                Margin="5" 
+                                                Grid.Column="0" Grid.Row="0">
+
+                                                    <Grid Grid.Column="0" Grid.Row="1" Margin="10,10,10,10">
+                                                        <DataGrid Name="dg" ItemsSource="{Binding BillRowItems}"   
+                                                      Foreground="Black" 
+                                                      AutoGenerateColumns="False" 
+                                                      HorizontalScrollBarVisibility="Auto"
+                                                      VerticalScrollBarVisibility="Auto"
+                                                     
+                                                    RowStyle="{DynamicResource DataGridRowStyle1}" 
+                                                    ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                                                    CellStyle="{DynamicResource DataGridCellStyle1}" 
+                                                    Style="{DynamicResource DataGridStyle1}">
+
+                                                            <DataGrid.Columns>
+                                                                
+                                                                <DataGridTextColumn Header="No." Width="0.5*"
+                                                                                    Binding="{Binding RowNo}" SortDirection="Ascending" IsReadOnly="True" />
+                                                                
+                                                                <DataGridTextColumn Header="Name" Width="2*"
+                                                                                    Binding="{Binding Item.itemName}" 
+                                                                                    IsReadOnly="True" />
+                                                                <DataGridTextColumn Header="Price" Width="1.2*" 
+                                                                                    Binding="{Binding Item.itemPrice}" 
+                                                                                    IsReadOnly="True" />
+                                                                <DataGridTemplateColumn>
+                                                                    <DataGridTemplateColumn.CellTemplate>
+                                                                        <DataTemplate>
+                                                                            <Button  Command="{Binding DataContext.IncrementCommand,ElementName=dg}" 
+                                                                             Style="{StaticResource gridRemoveButton}"
+                                                                             CommandParameter="{Binding}">
+                                                                                <Icon:PackIconMaterial Kind="Plus" Style="{StaticResource gridButtonIcon}"/>
+                                                                            </Button>
+                                                                        </DataTemplate>
+                                                                    </DataGridTemplateColumn.CellTemplate>
+                                                                </DataGridTemplateColumn>
+                                                                <DataGridTextColumn Header="Qty" Width="*"  
+                                                                                    Binding="{Binding Qty}" IsReadOnly="False"/>
+                                                                <DataGridTemplateColumn>
+                                                                    <DataGridTemplateColumn.CellTemplate>
+                                                                        <DataTemplate>
+                                                                            <Button  Command="{Binding DataContext.DecrementCommand,ElementName=dg}" 
+                                                                             Style="{StaticResource gridRemoveButton}"
+                                                                             CommandParameter="{Binding}">
+                                                                                <Icon:PackIconMaterial Kind="Minus" Style="{StaticResource gridButtonIcon}"/>
+                                                                            </Button>
+                                                                        </DataTemplate>
+                                                                    </DataGridTemplateColumn.CellTemplate>
+                                                                </DataGridTemplateColumn>
+                                                                <DataGridTextColumn Header="Total" Width="1.2*"  
+                                                                                    Binding="{Binding Total}" 
+                                                                                    IsReadOnly="True" />
+                                                                <DataGridTextColumn Header="Comments" 
+                                                                                    Width="1.5*" 
+                                                                                    Binding="{Binding Comment}" 
+                                                                                    IsReadOnly="False"/>
+                                                                <DataGridTemplateColumn>
+                                                                    <DataGridTemplateColumn.CellTemplate>
+                                                                        <DataTemplate>
+                                                                            <Button  Command="{Binding DataContext.DeleteRowCommand,ElementName=dg}" 
+                                                                             Style="{StaticResource gridRemoveButton}"
+                                                                             CommandParameter="{Binding}">
+                                                                                <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                                                            </Button>
+                                                                        </DataTemplate>
+                                                                    </DataGridTemplateColumn.CellTemplate>
+                                                                </DataGridTemplateColumn>
+
+                                                            </DataGrid.Columns>
+                                                        </DataGrid>
+                                                    </Grid>
+                                                </Border>
+
+                                                <Grid  Height="auto" Margin="20,0,20,0"   
+                                                       Grid.Column="0" Grid.Row="1" >
+
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <Border Grid.Row="0" Style="{StaticResource Borders}" Margin=" 0 0 0 10"
+                                                            CornerRadius="15">
+                                                        <Grid Grid.Row="0" Margin="5">
+
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition/>
+                                                                <RowDefinition/>
+                                                                <RowDefinition/>
+
+                                                            </Grid.RowDefinitions>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+
+
+
+
+                                                            <Grid Grid.Column="0" Grid.Row="0">
+                                                                <TextBlock Text="Total" 
+                                                                   Foreground="White"
+                                                                   FontSize="15"/>
+
+                                                            </Grid>
+
+                                                            <Grid Grid.Column="0" Grid.Row="1"  >
+                                                                <TextBlock Text="Discount" Foreground="white"
+                                                                   FontSize="15"/>
+                                                            </Grid>
+
+                                                            <Grid Grid.Column="0" Grid.Row="2" >
+                                                                <TextBlock Text="Sub Total" Foreground="white"
+                                                                   FontSize="15"/>
+                                                            </Grid>
+
+                                                            <Grid Grid.Column="1" Grid.Row="0">
+                                                        <TextBox Name="grandTxt" IsReadOnly="True" Text="{Binding GrandTotal}" Foreground="white"
+                                                                   FontSize="15" 
+                                                                 TextChanged="TextBox_TextChanged_1" 
+                                                                 BorderBrush="Transparent" 
+                                                                 Background="Transparent" 
+                                                                 FocusVisualStyle="{x:Null}" 
+                                                                 TextWrapping="Wrap" />
+
+                                                    </Grid>
+
+                                                    <Grid Grid.Column="1" Grid.Row="1" >
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="4*"/>
+                                                            <ColumnDefinition Width="11*"/>
+                                                            <ColumnDefinition Width="16*"/>
+                                                            <ColumnDefinition Width="139*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBox 
+                                                            Name="disText" 
+                                                            Text="{Binding Discount}" 
+                                                            TextChanged="TextBox_TextChanged_2" 
+                                                            Foreground="black"
+                                                            FontSize="15" 
+                                                            Grid.ColumnSpan="4"/>
+                                                    </Grid>
+
+                                                    <Grid Grid.Column="1" Grid.Row="2" >
+                                                        <TextBox                                                            
+                                                            Name="subTxt" 
+                                                            IsReadOnly="True"
+                                                            Text="{Binding SubTotal, UpdateSourceTrigger=PropertyChanged}" 
+                                                            Foreground="white"
+                                                                   FontSize="15"
+                                                            BorderBrush="Transparent" 
+                                                                 Background="Transparent" 
+                                                                 FocusVisualStyle="{x:Null}" 
+                                                                 TextWrapping="Wrap"
+                                                            />
+                                                    </Grid>
+
+
+
+                                                        </Grid>
+                                                    </Border>
+
+
+
+                                                    <Border Grid.Row="1" Style="{StaticResource Borders}"
+                                                            CornerRadius="15">
+                                                        <Grid Grid.Row="1" Margin="5">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="*"/>
+                                                                <RowDefinition Height="*"/>
+                                                                <RowDefinition Height="*"/>
+                                                                <RowDefinition Height="*"/>
+                                                            </Grid.RowDefinitions>
+
+
+
+
+                                                            <Grid Grid.Column="0" Grid.Row="0" >
+                                                                <TextBlock Text="Total item Recieved" Foreground="white"
+                                                                   FontSize="15"/>
+                                                            </Grid>
+
+                                                            <Grid Grid.Column="0" Grid.Row="1" >
+                                                                <TextBlock Text="Total Payable" Foreground="white"
+                                                                   FontSize="15"/>
+                                                            </Grid>
+
+                                                            <Grid Grid.Column="0" Grid.Row="2" >
+                                                                <TextBlock Text="Cash Recieved" Foreground="white"
+                                                                   FontSize="15"/>
+                                                            </Grid>
+
+                                                            <Grid Grid.Column="0" Grid.Row="3" >
+                                                                <TextBlock Text="Balance" Foreground="white"
+                                                                   FontSize="15"/>
+                                                            </Grid>
+
+
+
+                                                            <Grid Grid.Column="1" Grid.Row="3" />
+
+                                                            <Grid Grid.Column="1" Grid.Row="4" >
+                                                                <TextBlock Text="       " Foreground="white"
+                                                                   FontSize="15"/>
+                                                            </Grid>
+
+                                                            <Grid Grid.Column="1" Grid.Row="0" >
+                                                                <TextBox IsReadOnly="True" Name="qtyTxt"  Text="{Binding TotalItems}" Foreground="white"
+                                                                   FontSize="15"                                                                   
+                                                            BorderBrush="Transparent" 
+                                                                 Background="Transparent" 
+                                                                 FocusVisualStyle="{x:Null}" 
+                                                                 TextWrapping="Wrap"/>
+                                                            </Grid>
+
+                                                            <Grid Grid.Column="1" Grid.Row="1" >
+                                                                <TextBox Name="TextBox1" Text="{Binding SubTotal}"
+                                                                 IsReadOnly="True"
+                                                                   Foreground="white"
+                                                                   FontSize="15"
+                                                            BorderBrush="Transparent" 
+                                                                 Background="Transparent" 
+                                                                 FocusVisualStyle="{x:Null}" 
+                                                                 TextWrapping="Wrap"
+                                                            />
+                                                            </Grid>
+
+                                                            <Grid Grid.Column="1" Grid.Row="2" >
+                                                                <TextBox Name="TextBox2" Text="{Binding CashRecieved}" TextChanged="TextBox_TextChanged" Foreground="Black"
+                                                                   FontSize="15"/>
+                                                            </Grid>
+
+                                                            <Grid Grid.Column="1" Grid.Row="3" >
+                                                                <TextBox Name="TextBox3" Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"
+                                                                   Foreground="white"
+                                                                   FontSize="15"
+                                                            BorderBrush="Transparent" 
+                                                                 Background="Transparent" 
+                                                                 FocusVisualStyle="{x:Null}" 
+                                                                 TextWrapping="Wrap"                                                               
+                                                                 />
+                                                            </Grid>
+
+
+                                                        </Grid>
+                                                    </Border>
+
+                                                </Grid>
+
+
+
+                                                <Grid Grid.Column="0" Grid.Row="2">
+                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center">
+
+                                                        <Button Command="{Binding Path=CancelTransactionCommand}"
+                                                         Margin="0 0 20 0" FontSize="20" ToolTip="Cancel Pay" Cursor="Hand"
+                                                        Style="{StaticResource cancelbutton}" >
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <iconPacks:PackIconMaterial Kind="BookCancel" VerticalAlignment="Center" />
+                                                                <TextBlock Margin="5 0 0 0" Text="Cancel" />
+                                                            </StackPanel>
+                                                        </Button>
+
+                                                        <Button
+                                                        Name="PayBtn" Margin="20 0 0 0"  Command="{Binding Path=PaymentCommand}" 
+                                                        Style="{StaticResource payBtn}" Height="43" Width="219" IsEnabled="False"
+                                                            ToolTip="Pay" Cursor="Hand" >
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <iconPacks:PackIconMaterial Kind="CurrencyUsd" VerticalAlignment="Center" />
+                                                                <TextBlock Margin="5 0 0 0" Text="Pay" />
+                                                            </StackPanel>
+                                                        </Button>
+
+
+                                                    </StackPanel>
+                                                </Grid>
+
+                                            </Grid>
+
+                                        </Grid>
+
+
+
+
+                                        <TextBlock Grid.Row="0" Grid.Column="0" 
+                                                   Text="Cashier Window" Foreground="White"
+                                                   FontSize="24" Margin="20,0,4,0" 
+                                                   VerticalAlignment="Center"
+                                                   FontFamily="Source Serif Pro Black" 
+                                                   FontStretch="Medium"/>
+                                        <Grid Grid.Column="1" Grid.Row="0" >
+                                            <Border Style="{StaticResource Borders}" Margin="0,2,0,-2"
+                                                    CornerRadius="10 10 10 10">
+                                                <TextBlock Grid.Column="2" Grid.Row="0" 
+                                                   HorizontalAlignment="Center"
+                                                   Text="Categories" 
+                                                   Foreground="White" 
+                                                   Margin="0,10,0,0" 
+                                                   FontSize="22" 
+                                                   FontWeight="Medium" Width="auto"/>
+                                            </Border>
+                                            
+                                        </Grid>
+                                        <Grid Grid.Column="2" Grid.Row="0" >
+                                            <Border Style="{StaticResource Borders}" Margin="5,2,10,-2"
+                                                    CornerRadius="10 10 10 10">
+                                                <TextBlock Grid.Column="2" Grid.Row="0" 
+                                                   HorizontalAlignment="Center"
+                                                   Text="Products List" 
+                                                   Foreground="White" 
+                                                   Margin="0,10,0,10" 
+                                                   FontSize="22" 
+                                                   FontWeight="Medium" Width="auto"/>
+                                            </Border>
+                                            
+                                        </Grid>
+                                        <Grid Grid.Column="1" Grid.Row="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="0.186*"/>
+                                            </Grid.RowDefinitions>
+                                        
+                                        <Border Style="{StaticResource Borders}" Margin="0 5 0 5"
+                                                Grid.Row="0" ToolTip="Categories"
+                                                 CornerRadius="20 20 0 0">
+                                            <Grid Margin="0 20 0 0">
+                                                <ListView x:Name="Lv1" ItemsSource="{Binding ItemsListCat}" 
+                                                      Background="Transparent" BorderBrush="Transparent"  
+                                                      HorizontalAlignment="Center"   >
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Button Content="{Binding Name}" 
+                                                                HorizontalAlignment="Stretch" 
+                                                                VerticalAlignment="Center"
+                                                                
+                                                                Style="{StaticResource foodButton}"
+                                                                Command="{Binding ElementName=Lv1, 
+                                                                Path=DataContext.CatClickCommand}" 
+                                                                CommandParameter="{Binding }"/>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                </ListView>
+                                            </Grid>
+                                        </Border>
+
+                                            <Grid Grid.Column="0" Grid.Row="2">
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center">
+
+
+                                                    <Button
+                                                        Margin="0 -10 0 0"
+                                                        Name="BillBtn" Cursor="Hand"
+                                                        Command="{Binding Path=GeneratePrintCommand}"
+                                                        Style="{StaticResource payBtn}" Height="43" Width="120" IsEnabled="False">
+                                                        <StackPanel Orientation="Horizontal" ToolTip="Print Bill">
+                                                            <iconPacks:PackIconMaterial Kind="Printer" VerticalAlignment="Center" />
+                                                            <TextBlock Margin="5 0 0 0" Text="Print Bill"  />
+                                                        </StackPanel>
+                                                    </Button>
+
+
+                                                </StackPanel>
+                                            </Grid>
+                                        </Grid>
+
+                                        <Grid   Grid.Column="2" Grid.Row="1" Margin="5">
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="2*"/>
+                                                <RowDefinition Height="0.38*"/>
+                                            </Grid.RowDefinitions>
+                                            
+                                            <Border Style="{StaticResource Borders}"
+                                             
+                                               CornerRadius="20 20 30 0">
+                                            
+                                            <Grid ToolTip="Product List">
+                                                <Grid Height="529" VerticalAlignment="Top">
+                                                    <!--<Grid.RowDefinitions>
+                                                        <RowDefinition Height="2*"/>
+                                                        <RowDefinition Height="0.5*"/>
+                                                    </Grid.RowDefinitions>-->
+
+
+
+                                                        <ScrollViewer Grid.Column="2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="10,10,10,10" Grid.RowSpan="3">
+                                                        <StackPanel>
+                                                            <StackPanel Margin="20 0">
+                                                                <ItemsControl x:Name="ListViewProducts" ItemsSource="{Binding CurrentSelection}">
+                                                                    <ItemsControl.ItemTemplate>
+                                                                        <DataTemplate>
+                                                                            <Border Padding="5" Margin="0" Width="110" Height="110">
+                                                                                <Button Padding="0" Command="{Binding DataContext.ItemClickedCommand,ElementName=ListViewProducts}"  CommandParameter="{Binding}">
+                                                                                    <Grid>
+                                                                                        <Border Width="100" Height="100" CornerRadius="5">
+                                                                                            <Border.Effect>
+                                                                                                <DropShadowEffect ShadowDepth="1"/>
+                                                                                            </Border.Effect>
+                                                                                            <Border.Background>
+                                                                                                <ImageBrush ImageSource="{Binding itemPhoto}"/>
+                                                                                            </Border.Background>
+                                                                                        </Border>
+                                                                                        <TextBlock Style="{StaticResource AnnotationStyle223}" Margin="0" Text="{Binding itemName, StringFormat={}{0:C}}" FontSize="13" FontFamily="Franklin Gothic Medium"/>
+                                                                                        <TextBlock Margin="0" Text="{Binding itemPrice}" Style="{StaticResource AnnotationStyle22}"  FontSize="15"/>
+
+                                                                                    </Grid>
+                                                                                </Button>
+                                                                            </Border>
+                                                                        </DataTemplate>
+                                                                    </ItemsControl.ItemTemplate>
+                                                                    <ItemsControl.ItemsPanel>
+                                                                        <ItemsPanelTemplate>
+                                                                            <WrapPanel/>
+                                                                        </ItemsPanelTemplate>
+                                                                    </ItemsControl.ItemsPanel>
+                                                                </ItemsControl>
+                                                            </StackPanel>
+                                                        </StackPanel>
+                                                    </ScrollViewer>
+
+
+                                                   
+
+
+                                                </Grid>
+                                            </Grid>
+         
+                                            </Border>
+                                            <Grid Grid.Row="1">
+                                                <Button VerticalAlignment="Bottom" Margin="10" HorizontalAlignment="Right"
+                                                Cursor="Hand" Style="{StaticResource loginBtn}" Command="{Binding LogoutCommand}">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <iconPacks:PackIconMaterial Kind="Logout" />                                                       
+                                                        <TextBlock Margin="5 0 0 0" Text="LogOut"
+                                                                   ToolTip="Exit Cashier Window"/>
+                                                    </StackPanel>
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                        
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
