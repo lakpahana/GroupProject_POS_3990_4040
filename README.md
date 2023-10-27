@@ -47,43 +47,43 @@ We would like to acknowledge the contributions of the following individuals to t
 
 ## Screenshots
 
--- Login View
+- Login View
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/19c06ebc-b74f-4380-9dd2-f01de1623114)
 
--- Admin View Manage Cashier
+- Admin View Manage Cashier
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/9bd95a52-94cf-4a5f-9506-2356d2ab9611)
 
--- Admin View Add Manage Cashier  
+- Admin View Add Manage Cashier  
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/2d642387-c13e-4c91-a798-af8b5c976b1e)
 
--- Admin View Edit Manage Cashier  
+- Admin View Edit Manage Cashier  
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/dea2a906-a8eb-4e8a-a613-e88a49f35a18)
 
--- Admin Manage Item
+- Admin Manage Item
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/6467d184-3adf-4563-9cf2-ee599137788e)
 
--- Admin Manage Add Item
+- Admin Manage Add Item
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/7cd43711-44ee-4141-b262-adf151819579)
 
--- Admin Manage Edit Item
+- Admin Manage Edit Item
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/6d31e377-4d4d-44c2-9b7a-569d0c2b0fa5)
 
--- Admin Transaction View
+- Admin Transaction View
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/0cc29fb5-305b-43ff-badb-3a8c121c24f2)
 
--- Admin Transaction Details View
+- Admin Transaction Details View
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/ca76f47c-7bdb-4af5-b4b3-c316945a4a9e)
 
--- Cashier View
+- Cashier View
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/ee2a3ddf-bde4-4045-aa31-e51020d02fce)
 
--- Cashier Item Add View
+- Cashier Item Add View
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/cebef06f-f959-433d-a83b-8a313d5f530b)
 
--- Bill Print
+- Bill Print
 ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/cc92481d-9bac-4205-9119-017d2d2ab89d)
 
---  Unit Test
+-  Unit Test
   ![image](https://github.com/lakpahana/GroupProject_POS_3990_4040/assets/123730262/3c9a9b35-3fbe-43bb-948d-89742d3412b2)
 
 
