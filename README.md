@@ -1,4 +1,4 @@
-# GroupProject_POS_3990_4040
+# POS SYSTEM
 The Point of Sale (POS) System is a user-friendly application developed using WPF (Windows Presentation Foundation) and C#. 
 It provides an efficient and intuitive interface for managing sales and performing various operations related to product management and user roles.
 
@@ -102,4 +102,3 @@ We would like to acknowledge the contributions of the following individuals to t
 
    ```bash
    git clone https://github.com/lakpahana/GroupProject_POS_3990_4040
-```
