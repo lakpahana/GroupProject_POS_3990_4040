@@ -45,6 +45,11 @@ We would like to acknowledge the contributions of the following individuals to t
 - **Additional Functionality:**
   - View transaction history, display bills, and print receipts.
 
+## Demo Video
+
+https://github.com/PramithaMJ/GroupProject_POS_3990_4040/assets/123730262/f90c59ff-2e65-4c1f-a03a-9df9e798efd5
+
+
 ## Screenshots
 
 - Login View
